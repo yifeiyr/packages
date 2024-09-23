@@ -1,13 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=wfb-ng
-PKG_VERSION:=24.9.3
+PKG_VERSION:=24.09.23
 PKG_RELEASE:=1
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/svpcom/wfb-ng.git
-PKG_SOURCE_VERSION:=wfb-ng-24.09-openwrt-preview
-PKG_MIRROR_HASH:=bb29c4b8b5f8eaefb933060b180c8ff58bc6c9d216bc97d4dad3c10c8c0c5e69
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://codeload.github.com/svpcom/wfb-ng/tar.gz/$(PKG_NAME)-$(PKG_VERSION)?
+PKG_HASH:=c6cf669090952f6e430166a23b2fd787c6f7d4fd2d8d1996e8e3713f5cc4f8d9
 
 PKG_LICENSE:=GPL-3.0-only
 PKG_LICENSE_FILES:=LICENSE
@@ -18,6 +17,7 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 
 MAKE_FLAGS += VERSION=$(PKG_VERSION)-$(PKG_RELEASE) COMMIT=openwrt all_bin
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_NAME)-$(PKG_VERSION)
 
 define Package/wfb-ng
   SECTION:=net
