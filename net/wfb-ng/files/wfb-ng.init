@@ -4,7 +4,6 @@ START=99
 STOP=10
 
 USE_PROCD=1
-NAME=wfb-ng
 
 SYSUPGRADE_CONF="/etc/sysupgrade.conf"
 WFB_INIT="/usr/sbin/wfb-ng.sh"
